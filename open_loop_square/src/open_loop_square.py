@@ -47,6 +47,14 @@ class Drive_Square:
         rospy.loginfo("Forward!")
         rospy.sleep(1) # straight line driving time
         
+        #TURN SOMEWHERE
+        self.cmd_msg.header.stamp = rospy.Time.now()
+        self.cmd_msg.v = 0.5 # striaght line velocity
+        self.cmd_msg.omega = 1.5
+        self.pub.publish(self.cmd_msg)
+        rospy.loginfo("TURN")
+        rospy.sleep(1) # straight line driving time
+        
         self.cmd_msg.header.stamp = rospy.Time.now()
         self.cmd_msg.v = -0.5 # striaght line velocity
         self.cmd_msg.omega = 0.0
