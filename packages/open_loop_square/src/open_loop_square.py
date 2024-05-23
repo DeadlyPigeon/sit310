@@ -39,21 +39,79 @@ class Drive_Square:
     # Robot drives in a square and then stops
     def move_robot(self):
 
+	
         #YOUR CODE GOES HERE#
         self.cmd_msg.header.stamp = rospy.Time.now()
-        self.cmd_msg.v = 0.5 # striaght line velocity
+        self.cmd_msg.v = 1.5 # striaght line velocity
         self.cmd_msg.omega = 0.0
         self.pub.publish(self.cmd_msg)
         rospy.loginfo("Forward!")
-        rospy.sleep(1) # straight line driving time
+        rospy.sleep(3) # straight line driving time
         
         #TURN SOMEWHERE
         self.cmd_msg.header.stamp = rospy.Time.now()
         self.cmd_msg.v = 0.0 # striaght line velocity
-        self.cmd_msg.omega = 1.1
+        self.cmd_msg.omega = 2.3
         self.pub.publish(self.cmd_msg)
         rospy.loginfo("TURN")
-        rospy.sleep(2) # Turning time
+        rospy.sleep(1) # Turning time
+        
+        
+        
+        
+         #YOUR CODE GOES HERE#
+        self.cmd_msg.header.stamp = rospy.Time.now()
+        self.cmd_msg.v = 1.5 # striaght line velocity
+        self.cmd_msg.omega = 0.0
+        self.pub.publish(self.cmd_msg)
+        rospy.loginfo("Forward!")
+        rospy.sleep(3) # straight line driving time
+        
+        #TURN SOMEWHERE
+        self.cmd_msg.header.stamp = rospy.Time.now()
+        self.cmd_msg.v = 0.0 # striaght line velocity
+        self.cmd_msg.omega = 2.3
+        self.pub.publish(self.cmd_msg)
+        rospy.loginfo("TURN")
+        rospy.sleep(1) # Turning time
+        
+        
+        
+        
+         #YOUR CODE GOES HERE#
+        self.cmd_msg.header.stamp = rospy.Time.now()
+        self.cmd_msg.v = 1.5 # striaght line velocity
+        self.cmd_msg.omega = 0.0
+        self.pub.publish(self.cmd_msg)
+        rospy.loginfo("Forward!")
+        rospy.sleep(3) # straight line driving time
+        
+        #TURN SOMEWHERE
+        self.cmd_msg.header.stamp = rospy.Time.now()
+        self.cmd_msg.v = 0.0 # striaght line velocity
+        self.cmd_msg.omega = 2.3
+        self.pub.publish(self.cmd_msg)
+        rospy.loginfo("TURN")
+        rospy.sleep(1) # Turning time
+        
+        
+        
+        
+         #YOUR CODE GOES HERE#
+        self.cmd_msg.header.stamp = rospy.Time.now()
+        self.cmd_msg.v = 1.5 # striaght line velocity
+        self.cmd_msg.omega = 0.0
+        self.pub.publish(self.cmd_msg)
+        rospy.loginfo("Forward!")
+        rospy.sleep(3) # straight line driving time
+        
+        #TURN SOMEWHERE
+        self.cmd_msg.header.stamp = rospy.Time.now()
+        self.cmd_msg.v = 0.0 # striaght line velocity
+        self.cmd_msg.omega = 2.3
+        self.pub.publish(self.cmd_msg)
+        rospy.loginfo("TURN")
+        rospy.sleep(1) # Turning time
         
         ######################
                 
