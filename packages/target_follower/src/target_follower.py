@@ -42,15 +42,16 @@ class Target_Follower:
 
         #### YOUR CODE GOES HERE ####
 
+	#While turn if nothing is detected
         if len(detections) == 0:
             cmd_msg = Twist2DStamped()
             cmd_msg.header.stamp = rospy.Time.now()
             cmd_msg.v = 0.0
-            cmd_msg.omega = 1.0
+            cmd_msg.omega = 2.0
             self.cmd_vel_pub.publish(cmd_msg)
 
             return
-
+        
         x = detections[0].transform.translation.x
         y = detections[0].transform.translation.y
         z = detections[0].transform.translation.z
