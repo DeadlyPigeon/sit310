@@ -50,17 +50,10 @@ class Drive_Square:
         #TURN SOMEWHERE
         self.cmd_msg.header.stamp = rospy.Time.now()
         self.cmd_msg.v = 0.0 # striaght line velocity
-        self.cmd_msg.omega = 1.5
+        self.cmd_msg.omega = 1.1
         self.pub.publish(self.cmd_msg)
         rospy.loginfo("TURN")
         rospy.sleep(2) # Turning time
-        
-        self.cmd_msg.header.stamp = rospy.Time.now()
-        self.cmd_msg.v = -0.5 # striaght line velocity
-        self.cmd_msg.omega = 0.0
-        self.pub.publish(self.cmd_msg)
-        rospy.loginfo("Backward!")
-        rospy.sleep(1) # straight line driving time
         
         ######################
                 
