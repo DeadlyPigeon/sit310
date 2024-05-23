@@ -15,8 +15,8 @@ class Target_Follower:
         rospy.on_shutdown(self.clean_shutdown)
         
         ###### Init Pub/Subs. REMEMBER TO REPLACE "akandb" WITH YOUR ROBOT'S NAME #####
-        self.cmd_vel_pub = rospy.Publisher('/akandb/car_cmd_switch_node/cmd', Twist2DStamped, queue_size=1)
-        rospy.Subscriber('/akandb/apriltag_detector_node/detections', AprilTagDetectionArray, self.tag_callback, queue_size=1)
+        self.cmd_vel_pub = rospy.Publisher('/rjbot/car_cmd_switch_node/cmd', Twist2DStamped, queue_size=1)
+        rospy.Subscriber('/rjbot/apriltag_detector_node/detections', AprilTagDetectionArray, self.tag_callback, queue_size=1)
         ################################################################
 
         rospy.spin() # Spin forever but listen to message callbacks
@@ -43,6 +43,12 @@ class Target_Follower:
         #### YOUR CODE GOES HERE ####
 
         if len(detections) == 0:
+            cmd_msg = Twist2DStamped()
+            cmd_msg.header.stamp = rospy.Time.now()
+            cmd_msg.v = 0.0
+            cmd_msg.omega = 1.0
+            self.cmd_vel_pub.publish(cmd_msg)
+
             return
 
         x = detections[0].transform.translation.x
