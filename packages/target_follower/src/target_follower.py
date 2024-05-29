@@ -41,7 +41,6 @@ class Target_Follower:
     def move_robot(self, detections):
 
         #### YOUR CODE GOES HERE ####
-
 	#While turn if nothing is detected
         if len(detections) == 0:
             cmd_msg = Twist2DStamped()
@@ -58,13 +57,21 @@ class Target_Follower:
 
         rospy.loginfo("x,y,z: %f %f %f", x, y, z)
 
+	#If Sign is to the Right, Turn Left
+        if x < 0:
+            cmd_msg = Twist2DStamped()
+            cmd_msg.header.stamp = rospy.Time.now()
+            cmd_msg.v = 0.0
+            cmd_msg.omega = -2.0
+            self.cmd_vel_pub.publish(cmd_msg)
 
-        # Publish a velocity
-        cmd_msg = Twist2DStamped()
-        cmd_msg.header.stamp = rospy.Time.now()
-        cmd_msg.v = 0.0
-        cmd_msg.omega = 0.0
-        self.cmd_vel_pub.publish(cmd_msg)
+	#If Sign is to the Left, Turn Right
+        if x > 0:
+            cmd_msg = Twist2DStamped()
+            cmd_msg.header.stamp = rospy.Time.now()
+            cmd_msg.v = 0.0
+            cmd_msg.omega = 2.0
+            self.cmd_vel_pub.publish(cmd_msg)
 
         #############################
 
